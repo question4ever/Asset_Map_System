@@ -22,7 +22,15 @@ namespace Asset_Map_System
     {
         public MainWindow()
         {
+            Asset asset = new Asset();
+            asset.Name = "Computer-1";
+            asset.Tag = 0;
+            asset.Type = "Computer";
+            asset.SerialNumber = "SN0123";
+        
             InitializeComponent();
+
+            AssetTextBlock.Text = asset.ToString();
         }
     }
 }

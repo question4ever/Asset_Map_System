@@ -8,65 +8,15 @@ namespace Asset_Map_System
 {
     public class Asset
     {
-        private String type;
-        private String name;
-        private int tag;
-        private String serialNumber;
+        public String Type         { get; set; }
+        public String Name         { get; set; }
+        public int Tag             { get; set; }
+        public String SerialNumber { get; set; }
 
-        public Asset(String type = "", String name = "", int tag = 0, String serialNumber = "")
+        public override string ToString()
         {
-            this.type = type;
-            this.name = name;
-            this.tag = tag;
-            this.serialNumber = serialNumber;
+            return String.Format("{0}  {1}  {2}  {3}",
+                            Name, Type, Tag, SerialNumber);
         }
-
-        //Get and set asset type
-        public String GetAssetType()
-        {
-            return type;
-        }
-
-        public void SetAssetType(String type)
-        {
-            this.type = type;
-        }
-        //end
-
-        //start get name and set name
-        public String GetAssetName()
-        {
-            return name;
-        }
-
-        public void SetAssetName(String name)
-        {
-            this.name = name;
-        }
-        //end
-
-        //Start get and set TAG
-        public int GetAssetTag()
-        {
-            return tag;
-        }
-
-        public void SetAssetTag(int tag)
-        {
-            this.tag = tag;
-        }
-        //end
-
-        //Start get and set serial number
-        public String GetAssetSN()
-        {
-            return serialNumber;
-        }
-
-        public void SetAssetSN(String serialNumber)
-        {
-            this.serialNumber = serialNumber;
-        }
-        //end
     }
 }
