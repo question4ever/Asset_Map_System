@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Label>Name</Label>
+                <Label>Type</Label>
+                <Label>Asset ID</Label>
+                <Label>Serial Number</Label>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Label>Notes</Label>
+            <TextBox></TextBox>
+        </StackPanel>
     </Grid>
 </Window>
