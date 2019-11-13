@@ -12,6 +12,16 @@ namespace Asset_Map_System
         public String Name         { get; set; }
         public int Tag             { get; set; }
         public String SerialNumber { get; set; }
+        public bool Exists { get; set; }
+        public bool Imaged { get; set; }
+
+        public Asset(String Type = "", String Name = "", int Tag = 0, String SerialNumber = "")
+        {
+            this.Type = Type;
+            this.Name = Name;
+            this.Tag = Tag;
+            this.SerialNumber = SerialNumber;
+        }
 
         public override string ToString()
         {

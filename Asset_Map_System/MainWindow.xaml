@@ -5,27 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Asset_Map_System"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <StackPanel Orientation="Horizontal">
-                <Label>Name</Label>
-                <Label>Type</Label>
-                <Label>Asset ID</Label>
-                <Label>Serial Number</Label>
-            </StackPanel>
-            <StackPanel>
-                <TextBlock Name="AssetTextBlock" Height="25">
-                </TextBlock>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-            <Label>Notes</Label>
-            <TextBox Height="184"></TextBox>
-        </StackPanel>
-    </Grid>
+        Title="Asset Mapping System" Height="442" Width="339" Background="ForestGreen" Icon="spiral_icon.png" >
+    <StackPanel>
+        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"  Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                <DataGridTextColumn Header="Tag" Binding="{Binding Tag}" />
+                <DataGridTextColumn Header="Serial Number" Binding="{Binding SerialNumber}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="AddAsset" Click="AddAsset_Click" Width="15" ToolTip="Add a new asset to this room" HorizontalAlignment="Left">
+            <Image Source="add_button.png"/>
+        </Button>
+        <Button Name="DeleteAsset" Click="DeleteAsset_Click" Width="15" ToolTip="Delete the selected asset room" HorizontalAlignment="Left">
+            <Image Source="sub_button.png"/>
+        </Button>
+        <Button Name="SaveButton" Click="Save_Click">Save</Button>
+        <Label>Notes</Label>
+        <DockPanel Height="324" >
+            <TextBox Name="Notes" KeyDown="Notes_KeyDown" TextWrapping="Wrap" DockPanel.Dock="Bottom" Height="326" >
+            </TextBox>
+        </DockPanel>
+    </StackPanel>
 </Window>
