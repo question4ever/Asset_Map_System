@@ -27,11 +27,14 @@ namespace Asset_Map_System
     {
         private bool InventoryMode = false;
         private Room room = new Room();
+        private String filename = "assets.sav";
+
 
         public MainWindow()
         {
             InitializeComponent();
             Notes.Text = room.Notes;
+            room.Assets = Load();
             DG1.DataContext = room.Assets;
             if (InventoryMode)
             {
@@ -47,9 +50,17 @@ namespace Asset_Map_System
             }
         }
 
-        public void Save()
+        private void Save()
         {
-            FileStream fileStream = File.OpenWrite("assets.sav");
+            try
+            {
+                File.Delete(filename);
+            }
+            catch(IOException ioe)
+            {
+                Console.WriteLine(ioe.StackTrace);
+            }
+            FileStream fileStream = File.OpenWrite(filename);
             string x = "";
             foreach (Asset asset in room.Assets)
             {
@@ -60,19 +71,19 @@ namespace Asset_Map_System
             fileStream.Close();
         }
 
-        public Asset ReadAsset(FileStream fileStream)
+        private ObservableCollection<Asset> Load()
         {
-            int c = fileStream.ReadByte();
-            while (c != Encoding.ASCII.GetBytes("\n")[0])
+            ObservableCollection<Asset> tmpAssetList = new ObservableCollection<Asset>();
+            using (StreamReader sr = File.OpenText(filename))
             {
-
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] attrs = line.Split(',');
+                    tmpAssetList.Add(new Asset(attrs[1], attrs[0], Int32.Parse(attrs[2]), attrs[3]));
+                }
             }
-        }
-
-        public ObservableCollection<Asset> Load()
-        {
-            FileStream fileStream = File.OpenRead("assets.sav");
-            fileStream.ReadByte
+            return tmpAssetList;
         }
 
         private void AddAsset_Click(object sender, RoutedEventArgs e)
@@ -84,6 +95,7 @@ namespace Asset_Map_System
         public void AddAssetToRoom(Asset asset)
         {
             room.Assets.Add(asset);
+            Save();
         }
 
         private void DeleteAsset_Click(object sender, RoutedEventArgs e)
@@ -93,6 +105,7 @@ namespace Asset_Map_System
             {
                 room.Assets.RemoveAt(index);
             }
+            Save();
         }
 
         private void Notes_KeyDown(object sender, KeyEventArgs e)
@@ -112,7 +125,7 @@ namespace Asset_Map_System
             }
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void DG1_CurrentCellChanged(object sender, EventArgs e)
         {
             Save();
         }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Asset Mapping System" Height="442" Width="339" Background="ForestGreen" Icon="spiral_icon.png" >
     <StackPanel>
-        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" >
+        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" CurrentCellChanged="DG1_CurrentCellChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name"  Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
@@ -21,7 +21,6 @@
         <Button Name="DeleteAsset" Click="DeleteAsset_Click" Width="15" ToolTip="Delete the selected asset room" HorizontalAlignment="Left">
             <Image Source="sub_button.png"/>
         </Button>
-        <Button Name="SaveButton" Click="Save_Click">Save</Button>
         <Label>Notes</Label>
         <DockPanel Height="324" >
             <TextBox Name="Notes" KeyDown="Notes_KeyDown" TextWrapping="Wrap" DockPanel.Dock="Bottom" Height="326" >
