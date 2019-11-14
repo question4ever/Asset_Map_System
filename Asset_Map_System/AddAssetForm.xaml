@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Asset_Map_System"
         mc:Ignorable="d"
         Title="New Asset" Height="167" Width="324" Background="ForestGreen" Icon="spiral_icon.png">
-    <Grid>
+    <Grid KeyDown="Grid_KeyDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

@@ -31,5 +31,13 @@ namespace Asset_Map_System
             ((MainWindow)Application.Current.MainWindow).AddAssetToRoom(asset);
             Close();
         }
+
+        private void Grid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                Submit_Click(sender, e);
+            }
+        }
     }
 }

@@ -58,11 +58,18 @@
     <Compile Include="AddAssetForm.xaml.cs">
       <DependentUpon>AddAssetForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FloorMapWindow.xaml.cs">
+      <DependentUpon>FloorMapWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Room.cs" />
     <Page Include="AddAssetForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FloorMapWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
