@@ -28,7 +28,11 @@ namespace Asset_Map_System
         {
             int tag = Int32.Parse(Tag.Text);
             Asset asset = new Asset(Type.Text, Name.Text, tag, SerialNumber.Text);
-            ((MainWindow)Application.Current.MainWindow).AddAssetToRoom(asset);
+            RoomWindow rm;
+            foreach(Window window in Application.Current.Windows)
+            {
+
+            }
             Close();
         }
 

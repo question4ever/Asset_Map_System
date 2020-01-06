@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Asset_Map_System"
         mc:Ignorable="d"
-        Title="FloorMapWindow" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+        Title="FloorMapWindow" Height="500" Width="500" Icon="spiral_icon.png"  SizeChanged="Window_SizeChanged" Loaded="Window_Loaded">
+    <Canvas Name="Floor">
+        <Image Name="FloorPlan" Source="{StaticResource mapDrawingImage}"></Image>
+    </Canvas>
 </Window>

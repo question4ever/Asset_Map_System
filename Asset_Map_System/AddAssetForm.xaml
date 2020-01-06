@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Asset_Map_System"
         mc:Ignorable="d"
-        Title="New Asset" Height="167" Width="324" Background="ForestGreen" Icon="spiral_icon.png">
+        Title="New Asset" Height="167" Width="324" Icon="spiral_icon.png">
     <Grid KeyDown="Grid_KeyDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

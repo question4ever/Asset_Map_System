@@ -23,18 +23,33 @@ namespace Asset_Map_System
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RoomWindow : Window
     {
         private bool InventoryMode = false;
         private Room room = new Room();
-        private String filename = "assets.sav";
+        private String filename;
 
-
-        public MainWindow()
+        public RoomWindow()
         {
             InitializeComponent();
+        }
+
+        public RoomWindow(string filename)
+        {
+            InitializeComponent();
+            this.filename = filename;
             Notes.Text = room.Notes;
-            room.Assets = Load();
+            try
+            {
+                room.Assets = Load();
+            }
+            catch (FileNotFoundException fnf)
+            {
+                Console.WriteLine(fnf.StackTrace);
+                FileStream f = File.OpenWrite(filename);
+                f.Close();
+                room.Assets = Load();
+            }
             DG1.DataContext = room.Assets;
             if (InventoryMode)
             {
@@ -128,6 +143,12 @@ namespace Asset_Map_System
         private void DG1_CurrentCellChanged(object sender, EventArgs e)
         {
             Save();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new FloorMapWindow();
+            window.Show();
         }
     }
 }

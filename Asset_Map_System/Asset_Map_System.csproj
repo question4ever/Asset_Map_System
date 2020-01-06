@@ -35,8 +35,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fizzler, Version=1.1.21209.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fizzler.1.1.0\lib\net35\Fizzler.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.WpfDesign, Version=8.0.171.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.WpfDesigner.8.0.171\lib\net45\ICSharpCode.WpfDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.WpfDesign.Designer, Version=8.0.171.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.WpfDesigner.8.0.171\lib\net45\ICSharpCode.WpfDesign.Designer.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.WpfDesign.XamlDom, Version=8.0.171.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ICSharpCode.WpfDesigner.8.0.171\lib\net45\ICSharpCode.WpfDesign.XamlDom.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPdf, Version=2019.8.9.21868, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPdf.2019.8.9\lib\net40\IronPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Svg, Version=3.0.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Svg.3.0.84\lib\net452\Svg.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -61,19 +81,28 @@
     <Compile Include="FloorMapWindow.xaml.cs">
       <DependentUpon>FloorMapWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="PDFtoSVG.cs" />
+    <Compile Include="RoomWindow.xaml.cs">
+      <DependentUpon>RoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Room.cs" />
     <Page Include="AddAssetForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Assets\map.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\sol_floor_3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="FloorMapWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="RoomWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -105,6 +134,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Assets\047-3.pdf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,10 +145,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="sol_floor_3.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Resource Include="add_button.png" />
-    <Resource Include="sub_button.png" />
     <Resource Include="spiral_icon.png" />
+    <Resource Include="sub_button.png" />
     <Content Include="nrh_floor_1.svg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
